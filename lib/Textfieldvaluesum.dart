@@ -17,7 +17,7 @@ class _TextfieldSumState extends State<TextfieldSum> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.amber,
-        title: Text("TextFieldSum"),
+        title: Text("TextFieldSum "),
         centerTitle: true,
       ),
       body: Column(
