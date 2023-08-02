@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterfly/textfieldexample.dart';
 
 import 'Textfieldvaluesum.dart';
+import 'currencyconverter.dart';
 import 'myhome.dart';
 
 void main() {
@@ -35,7 +36,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: TextfieldSum(),
+      home: Currency(),
     );
   }
 }
