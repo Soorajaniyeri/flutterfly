@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutterfly/textfieldexample.dart';
 
+import 'Controller.dart';
 import 'Textfieldvaluesum.dart';
 import 'currencyconverter.dart';
+import 'displaytext.dart';
+import 'multiplicationcontroll.dart';
 import 'myhome.dart';
 
 void main() {
@@ -36,7 +39,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: Currency(),
+      home: Displayvalue(),
     );
   }
 }
