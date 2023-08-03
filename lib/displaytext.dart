@@ -29,7 +29,10 @@ class _DisplayvalueState extends State<Displayvalue> {
             setState(() {
               myValue = myctr.text;
             });
-          }),
+          },
+              
+
+          ),
           myValue == null ? Text("getting text") : Text(myValue!),
         ],
       ),

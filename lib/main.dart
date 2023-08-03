@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutterfly/sumdisplay.dart';
+import 'package:flutterfly/textfieldcolumn.dart';
 import 'package:flutterfly/textfieldexample.dart';
 
 import 'Controller.dart';
 import 'Textfieldvaluesum.dart';
+import 'columnalignment.dart';
 import 'currencyconverter.dart';
 import 'displaytext.dart';
 import 'multiplicationcontroll.dart';
@@ -39,7 +42,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: Displayvalue(),
+      home: ColumnAlignment(),
     );
   }
 }
@@ -63,10 +66,10 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int value=1;
+  int value = 1;
   int _counter = 2;
 
-  Color myclr=Colors.transparent;
+  Color myclr = Colors.transparent;
   Color myclr2 = Colors.green;
 
   List<Color> mylist = [Colors.black, Colors.pink];
@@ -78,18 +81,13 @@ class _MyHomePageState extends State<MyHomePage> {
       // so that the display can reflect the updated values. If we changed
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
-      _counter= _counter+2;
-      value=value+1;
+      _counter = _counter + 2;
+      value = value + 1;
     });
 
-
-
-    if (_counter %2== 0) {
+    if (_counter % 2 == 0) {
       myclr = Colors.red;
-    }
-
-    else{
-
+    } else {
       myclr = Colors.transparent;
     }
   }
