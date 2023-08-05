@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutterfly/rawalignment.dart';
 import 'package:flutterfly/sumdisplay.dart';
 import 'package:flutterfly/textfieldcolumn.dart';
 import 'package:flutterfly/textfieldexample.dart';
+import 'package:flutterfly/tshape.dart';
+import 'package:flutterfly/tshape2.dart';
+import 'package:flutterfly/windowslogo.dart';
+import 'package:flutterfly/windowslogo2.dart';
 
 import 'Controller.dart';
 import 'Textfieldvaluesum.dart';
+import 'appbardesign.dart';
 import 'columnalignment.dart';
 import 'currencyconverter.dart';
 import 'displaytext.dart';
+import 'lshape.dart';
 import 'multiplicationcontroll.dart';
 import 'myhome.dart';
 
@@ -22,6 +29,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
@@ -42,7 +50,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: ColumnAlignment(),
+      home:Tshape(),
     );
   }
 }

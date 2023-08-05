@@ -8,6 +8,10 @@ class ColumnAlignment extends StatefulWidget {
 }
 
 class _ColumnAlignmentState extends State<ColumnAlignment> {
+  String? myvalue;
+
+  TextEditingController mytxt = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +26,6 @@ class _ColumnAlignmentState extends State<ColumnAlignment> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-              
               height: 100,
               width: 150,
               color: Colors.green,
@@ -31,6 +34,7 @@ class _ColumnAlignmentState extends State<ColumnAlignment> {
               height: 100,
               width: 200,
               color: Colors.red,
+              child: Center(child: Text("Hello Welcome")),
             ),
             Container(
               height: 100,
@@ -41,7 +45,23 @@ class _ColumnAlignmentState extends State<ColumnAlignment> {
               height: 100,
               width: 300,
               color: Colors.blue,
-            )
+            ),
+
+//             TextField(
+//               controller:mytxt ,
+//             ),
+//
+//
+//             FloatingActionButton(onPressed: (){
+// setState(() {
+//
+//   myvalue=mytxt.text;
+//
+//
+// });
+//
+//
+//             })
           ],
         ),
       ),
