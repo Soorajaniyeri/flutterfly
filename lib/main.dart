@@ -12,12 +12,14 @@ import 'package:flutterfly/textfielddecoration.dart';
 import 'package:flutterfly/textfieldexample.dart';
 import 'package:flutterfly/tshape.dart';
 import 'package:flutterfly/tshape2.dart';
+import 'package:flutterfly/userdetails.dart';
 import 'package:flutterfly/whatsappui.dart';
 import 'package:flutterfly/windowslogo.dart';
 import 'package:flutterfly/windowslogo2.dart';
 
 import 'Catagories.dart';
 import 'Controller.dart';
+import 'Listdataentry.dart';
 import 'Textfieldvaluesum.dart';
 import 'appbardesign.dart';
 import 'buttons.dart';
@@ -31,6 +33,7 @@ import 'inkwellexample.dart';
 import 'listtile.dart';
 import 'listviewbuilder.dart';
 import 'listviewexample.dart';
+import 'logindesign.dart';
 import 'lshape.dart';
 import 'multiplicationcontroll.dart';
 import 'myhome.dart';
@@ -67,7 +70,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home:InkwellExample(),
+      home:Userdetails(),
     );
   }
 }
