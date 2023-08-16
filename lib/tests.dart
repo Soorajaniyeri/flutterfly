@@ -16,34 +16,27 @@ class _testinguuState extends State<testinguu> {
         backgroundColor: Colors.yellow,
         title: Text("hello"),
       ),
-      body: Column(
-        children: [
-          Container(
-            height: 100,
-            width: 100,
-            color: Colors.blue,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                height: 100,
-                width: 100,
-                color: Colors.red,
-              ),
-              Container(
-                height: 100,
-                width: 100,
-                color: Colors.black,
-              ),
-              Container(
-                height: 100,
-                width: 100,
-                color: Colors.green,
-              ),
-            ],
-          )
-        ],
+
+      // body:ListView.builder(
+      //   itemBuilder: (context,index) {
+      //     return Text('hy');
+      //   }
+      // )
+
+      body:Container(
+        height: 200,
+        color: Colors.red,
+        child: Center(
+          child: ListView.builder(
+            //padding: EdgeInsets.all(10),
+            itemCount: 5,
+              itemBuilder: (context,index){
+
+               return Text((index+1).toString());
+
+
+              }),
+        ),
       ),
     );
   }
