@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutterfly/pending.dart';
+import 'package:flutterfly/popupmenu.dart';
+import 'package:flutterfly/popupmenu2.dart';
 import 'package:flutterfly/printdays.dart';
 import 'package:flutterfly/printmonth.dart';
 import 'package:flutterfly/profileicon.dart';
+import 'package:flutterfly/radioexample.dart';
 import 'package:flutterfly/rawalignment.dart';
 import 'package:flutterfly/sizedbox.dart';
 import 'package:flutterfly/stack.dart';
 import 'package:flutterfly/stack2.dart';
 import 'package:flutterfly/sumdisplay.dart';
+import 'package:flutterfly/switch.dart';
 import 'package:flutterfly/testing.dart';
-import 'package:flutterfly/tests.dart';
+import 'package:flutterfly/study.dart';
 import 'package:flutterfly/textdecoration.dart';
 import 'package:flutterfly/textfieldcolumn.dart';
 import 'package:flutterfly/textfielddecoration.dart';
@@ -27,9 +32,13 @@ import 'Textfieldvaluesum.dart';
 import 'advanceddetails.dart';
 import 'appbardesign.dart';
 import 'buttons.dart';
+import 'checkboxtext.dart';
 import 'columnalignment.dart';
 import 'containerdecoration.dart';
 import 'currencyconverter.dart';
+import 'datepicker.dart';
+import 'datepickertask.dart';
+import 'detaildform.dart';
 import 'displaytext.dart';
 import 'drawer.dart';
 import 'futuralabs.dart';
@@ -79,7 +88,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home:FuturaLabs(),
+      home:Pending(),
     );
   }
 }

@@ -14,28 +14,18 @@ class _TestingState extends State<Testing> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-
-
           backgroundColor: Colors.green,
-
-
-
         ),
-        body:  Center(
+        body: Center(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
-
-
             children: [
-
               Container(
                 height: 50,
                 width: 50,
                 color: Colors.black,
               ),
-
-
               Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -44,14 +34,11 @@ class _TestingState extends State<Testing> {
                     width: 50,
                     color: Colors.red,
                   ),
-
                   Container(
                     height: 50,
                     width: 50,
                     color: Colors.red,
                   ),
-
-
                   Container(
                     height: 50,
                     width: 50,
@@ -59,7 +46,6 @@ class _TestingState extends State<Testing> {
                   ),
                 ],
               ),
-
               Container(
                 height: 50,
                 width: 50,
@@ -67,9 +53,6 @@ class _TestingState extends State<Testing> {
               )
             ],
           ),
-        )
-
-
-    );
+        ));
   }
 }

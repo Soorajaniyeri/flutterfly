@@ -15,29 +15,22 @@ class _StackExampleState extends State<StackExample> {
       appBar: AppBar(),
       body: Stack(
         children: [
-
-
           Align(
             alignment: Alignment.topLeft,
             child: Container(
-
               height: 100,
               width: 100,
               color: Colors.blue,
             ),
           ),
-
           Align(
             alignment: Alignment.bottomLeft,
             child: Container(
-
               height: 100,
               width: 100,
               color: Colors.red,
             ),
           ),
-
-
           Align(
             alignment: Alignment.topRight,
             child: Container(
@@ -46,48 +39,31 @@ class _StackExampleState extends State<StackExample> {
               color: Colors.green,
             ),
           ),
-
-
-
           Align(
             alignment: Alignment.bottomRight,
-
             child: Container(
-
               height: 100,
               width: 100,
               color: Colors.yellow,
             ),
           ),
-
-
-
           Align(
             alignment: Alignment.center,
-
             child: Container(
-
               height: 100,
               width: 100,
               color: Colors.black,
             ),
           ),
-
           Positioned(
             left: 50,
             bottom: 50,
-
-
-
-
             child: Container(
-
               height: 100,
               width: 80,
               color: Colors.pink,
             ),
           ),
-
         ],
       ),
     );

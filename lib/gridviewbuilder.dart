@@ -20,7 +20,7 @@ class _GridviewbuilderexampleState extends State<Gridviewbuilderexample> {
             //padding: EdgeInsets.all(10),
             itemCount: 63,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 9, mainAxisSpacing: 0, crossAxisSpacing: 0),
+                crossAxisCount: 9, mainAxisSpacing: 50, crossAxisSpacing: 0),
             itemBuilder: (context, index) {
               if (index.isEven) {
                 return Container(
