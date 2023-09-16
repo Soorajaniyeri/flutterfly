@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class DatepickerExample extends StatefulWidget {
   const DatepickerExample({super.key});
@@ -9,7 +10,16 @@ class DatepickerExample extends StatefulWidget {
 }
 
 class _DatepickerExampleState extends State<DatepickerExample> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    getData();
+  }
+
   String? now;
+  String? selectedName;
 
   selectDate() async {
     DateTime? store = await showDatePicker(
@@ -23,20 +33,32 @@ class _DatepickerExampleState extends State<DatepickerExample> {
     });
   }
 
+  getData() async {
+    SharedPreferences profile = await SharedPreferences.getInstance();
+    String? inputName = profile.getString("ff");
+
+    if (inputName != null) {
+      setState(() {
+        selectedName = inputName;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Center(
-          child: ElevatedButton(
-              onPressed: () {
-                selectDate();
-              },
-              child: Text("select date")),
-        ),
-        now == null ? Text(" plese select date ") : Text(now!),
+         Center(child: Text(selectedName!)),
+        // Center(
+        //   child: ElevatedButton(
+        //       onPressed: () {
+        //         selectDate();
+        //       },
+        //       child: Text("select date")),
+        // ),
+        // now == null ? Text(" plese select date ") : Text(now!),
       ],
     ));
   }

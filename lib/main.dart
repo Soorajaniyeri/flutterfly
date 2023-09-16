@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterfly/page1.dart';
 import 'package:flutterfly/pending.dart';
 import 'package:flutterfly/popupmenu.dart';
 import 'package:flutterfly/popupmenu2.dart';
@@ -7,11 +8,16 @@ import 'package:flutterfly/printmonth.dart';
 import 'package:flutterfly/profileicon.dart';
 import 'package:flutterfly/radioexample.dart';
 import 'package:flutterfly/rawalignment.dart';
+import 'package:flutterfly/scaffoldmesNotification.dart';
+import 'package:flutterfly/sharedpref.dart';
+import 'package:flutterfly/sharedpreftask.dart';
+import 'package:flutterfly/sharedpreftaskwithnavigator.dart';
 import 'package:flutterfly/sizedbox.dart';
 import 'package:flutterfly/stack.dart';
 import 'package:flutterfly/stack2.dart';
 import 'package:flutterfly/sumdisplay.dart';
 import 'package:flutterfly/switch.dart';
+import 'package:flutterfly/tabbar.dart';
 import 'package:flutterfly/testing.dart';
 import 'package:flutterfly/study.dart';
 import 'package:flutterfly/textdecoration.dart';
@@ -24,16 +30,31 @@ import 'package:flutterfly/tshape.dart';
 import 'package:flutterfly/tshape2.dart';
 import 'package:flutterfly/userdetails.dart';
 import 'package:flutterfly/whatsappui.dart';
+import 'package:flutterfly/whatsappui2.dart';
 import 'package:flutterfly/windowslogo.dart';
 import 'package:flutterfly/windowslogo2.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
+import 'Bottomnavigation.dart';
 import 'Catagories.dart';
 import 'Controller.dart';
+import 'Mapflutter2.dart';
+import 'Maptask3.dart';
+import 'api3.dart';
+import 'apiGet.dart';
+import 'apiintegration2.dart';
+import 'apitask.dart';
+import 'apitaskbig.dart';
+import 'gallery.dart';
 import 'Listdataentry.dart';
+import 'LocationTask.dart';
+import 'Locationpicker.dart';
+import 'Navigator.dart';
 import 'Textfieldvaluesum.dart';
 import 'advanceddetails.dart';
 import 'alertbox.dart';
 import 'appbardesign.dart';
+import 'assetimage.dart';
 import 'buttons.dart';
 import 'checkboxtext.dart';
 import 'columnalignment.dart';
@@ -50,12 +71,16 @@ import 'gridviewbuilder.dart';
 import 'gridviewtask.dart';
 import 'gridviewwxample.dart';
 import 'imageinternet.dart';
+import 'imagepicker.dart';
+import 'imagepickertask.dart';
 import 'inkwellexample.dart';
 import 'listtile.dart';
 import 'listviewbuilder.dart';
 import 'listviewexample.dart';
 import 'logindesign.dart';
+import 'look.dart';
 import 'lshape.dart';
+import 'mapflutter.dart';
 import 'multiplicationcontroll.dart';
 import 'myhome.dart';
 
@@ -70,6 +95,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      builder: FToastBuilder(),
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -91,7 +117,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home:Study(),
+      home: ApiTask5(),
     );
   }
 }

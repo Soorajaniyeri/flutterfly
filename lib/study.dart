@@ -1,5 +1,8 @@
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
 
 class Study extends StatefulWidget {
   const Study({super.key});
@@ -9,38 +12,19 @@ class Study extends StatefulWidget {
 }
 
 class _StudyState extends State<Study> {
-  String gender = "Not Selected";
-  bool Malayalam = false;
-  String? selectedDate;
+  dynamic value;
 
-  showSuccess() async {
-    await showDialog(
-        context: context,
-        builder: (context) {
-          return AlertDialog(
-            title: Text("Hello"),
-          );
+  getData() async {
+    Response store = await get(Uri.parse("https://reqres.in/api/users/2"));
+    if (store.statusCode == 200) {
+      var myData = jsonDecode(store.body);
+
+      setState(() {
+        setState(() {
+          value = myData;
         });
-  }
-
-  openDp()async {
-
-
- DateTime? store =  await showDatePicker(
-        context: context,
-        initialDate: DateTime.now(),
-        firstDate: DateTime(2020),
-        lastDate: DateTime(2025));
-
- if(store!=null){
-
- setState(() {
-   selectedDate = store.toString();
- });
-
- print(selectedDate);}
-
-
+      });
+    }
   }
 
   @override
@@ -48,55 +32,17 @@ class _StudyState extends State<Study> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.yellow,
+        title: Text("Study"),
+        centerTitle: true,
       ),
-      body: ListView(
+      body: Column(
         children: [
-          Radio(
-              value: "male",
-              groupValue: gender,
-              onChanged: (gettingValue) {
-                setState(() {
-                  gender = gettingValue!;
-                });
-
-                gender = gettingValue!;
-                print(gettingValue);
-                print(gender);
-              }),
-          Radio(
-              value: "female",
-              groupValue: gender,
-              onChanged: (gettingValue) {
-                setState(() {
-                  gender = gettingValue!;
-                });
-
-                gender = gettingValue!;
-                print(gettingValue);
-                print(gender);
-              }),
-          Checkbox(
-              value: Malayalam,
-              onChanged: (gettingValue) {
-                print(gettingValue);
-                setState(() {
-                  Malayalam = gettingValue!;
-                });
-              }),
-          Center(
-              child: ElevatedButton(
-                  onPressed: () {
-                    showSuccess();
-                  },
-                  child: Text("click"))),
-          Center(
-              child: ElevatedButton(onPressed: () {
-
-                openDp();
-                // print(selectedDate);
-              }, child: Text("showDP"))),
-
-          selectedDate == null? Text("Please Select Date"): Text(selectedDate!)
+          ElevatedButton(
+              onPressed: () {
+                getData();
+              },
+              child: Text("click")),
+          value == null ? SizedBox() : Text(value['data']["first_name"])
         ],
       ),
     );

@@ -27,19 +27,19 @@ class _AlertBoxExampleState extends State<AlertBoxExample> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        actions: [
-          PopupMenuButton(itemBuilder: (context) {
-            return [
-              PopupMenuItem(child: Text("Settings")),
-              PopupMenuItem(child: Text("Logout")),
-            ];
-          })
-        ],
-        backgroundColor: Colors.yellow,
-        title: Text('Alert Box'),
-        centerTitle: true,
-      ),
+      // appBar: AppBar(
+      //   actions: [
+      //     PopupMenuButton(itemBuilder: (context) {
+      //       return [
+      //         PopupMenuItem(child: Text("Settings")),
+      //         PopupMenuItem(child: Text("Logout")),
+      //       ];
+      //     })
+      //   ],
+      //   backgroundColor: Colors.yellow,
+      //   title: Text('Alert Box'),
+      //   centerTitle: true,
+      // ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

@@ -26,7 +26,6 @@ class _TextFldtskState extends State<TextFldtsk> {
     if (store != null) {
       setState(() {
         selectedDob = store.toString();
-
       });
     }
   }
@@ -61,7 +60,7 @@ class _TextFldtskState extends State<TextFldtsk> {
           children: [
             Padding(
               padding: const EdgeInsets.only(
-                  left: 30, right: 30, bottom: 30, top: 20),
+                  left: 30, right: 30, bottom: 30, top: 30),
               child: TextField(
                 controller: nameTxt,
                 decoration: InputDecoration(
@@ -121,7 +120,8 @@ class _TextFldtskState extends State<TextFldtsk> {
                     if (nameTxt.text.isNotEmpty &&
                         numberTxt.text.isNotEmpty &&
                         numberTxt.text.length == 10 &&
-                        emailTxt.text.isNotEmpty  && selectedDob!=null) {
+                        emailTxt.text.isNotEmpty &&
+                        selectedDob != null) {
                       showSuccess();
                     } else {
                       showFail();
