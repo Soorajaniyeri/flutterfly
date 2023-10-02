@@ -4,6 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 
+import 'Modelclass.dart';
+
 class FutureBuilderExample extends StatefulWidget {
   const FutureBuilderExample({super.key});
 
@@ -12,12 +14,13 @@ class FutureBuilderExample extends StatefulWidget {
 }
 
 class _FutureBuilderExampleState extends State<FutureBuilderExample> {
-  Future<dynamic> getData() async {
-    Response responce =
-        await get(Uri.parse("https://reqres.in/api/users?page=2"));
+  Future<JsonApi> getData() async {
+    Response responce = await get(Uri.parse("https://dummyjson.com/products"));
     if (responce.statusCode == 200) {
-      var body = jsonDecode(responce.body);
+      var body = JsonApi.fromJson(jsonDecode(responce.body));
       return body;
+    } else {
+      throw "fg";
     }
   }
 
@@ -29,9 +32,9 @@ class _FutureBuilderExampleState extends State<FutureBuilderExample> {
         title: Text("Future Builder with Api"),
         centerTitle: true,
       ),
-      body: FutureBuilder(
+      body: FutureBuilder<JsonApi>(
           future: getData(),
-          builder: (context, snapshot) {
+          builder: (context, AsyncSnapshot<JsonApi> snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return Center(
                 child: CircularProgressIndicator(),
@@ -39,14 +42,49 @@ class _FutureBuilderExampleState extends State<FutureBuilderExample> {
             }
 
             if (snapshot.hasData) {
+              List? myList = snapshot.data!.products;
               return ListView.builder(
-                  itemCount: snapshot.data['data'].length,
+                  itemCount: myList!.length,
                   itemBuilder: (context, index) {
-                    return Text(snapshot.data['data'][index]['email']);
+                    // return Text("${myList[index].id}");
+
+
+                    return Container(
+                      padding: EdgeInsets.all(10),
+                      margin: EdgeInsets.all(20),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
+                        border: Border.all(color: Colors.black)
+                      ),
+                      child: Column(
+                        children: [
+                          
+                          Container(
+                            height: 100,
+                            width: 100,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.all(Radius.circular(10)),
+                              image: DecorationImage(
+                                fit: BoxFit.cover,
+                                  image: NetworkImage(myList[index].thumbnail!))
+                            ),
+                          ),
+
+
+                      Text("${myList[index].id}"),
+                          Text(myList[index].title.toString()),
+                          
+                          Text(myList[index].discountPercentage.toString()),
+                          Text(myList[index].price.toString())
+                        ],
+                      ),
+
+                    );
+
                   });
             } else {
               return Center(
-                child: Text("No Data Found"),
+                child: Text("No Data Found ${snapshot.error}"),
               );
             }
           }),

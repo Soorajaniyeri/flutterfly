@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterfly/study2.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Listtileexample extends StatefulWidget {
   const Listtileexample({super.key});
@@ -9,9 +11,21 @@ class Listtileexample extends StatefulWidget {
 }
 
 class _ListtileexampleState extends State<Listtileexample> {
+  storeData() async {
+    SharedPreferences store = await SharedPreferences.getInstance();
+    await store.setString("username", "Sooraj");
+
+    // Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+    //   return study2();
+    // }));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(onPressed: () {
+        storeData();
+      }),
       appBar: AppBar(
         backgroundColor: Colors.yellow,
         title: Text("ListTile"),
@@ -47,8 +61,6 @@ class _ListtileexampleState extends State<Listtileexample> {
                   BoxDecoration(color: Colors.blue, shape: BoxShape.circle),
             ),
           ),
-
-
           ListTile(
             title: Text(
               "Sneha",
@@ -65,16 +77,16 @@ class _ListtileexampleState extends State<Listtileexample> {
             leading: Container(
               child: Center(
                   child: Text(
-                    "S",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18),
-                  )),
+                "S",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18),
+              )),
               height: 50,
               width: 50,
               decoration:
-              BoxDecoration(color: Colors.blue, shape: BoxShape.circle),
+                  BoxDecoration(color: Colors.blue, shape: BoxShape.circle),
             ),
           ),
           ListTile(
@@ -104,7 +116,7 @@ class _ListtileexampleState extends State<Listtileexample> {
               decoration:
                   BoxDecoration(color: Colors.blue, shape: BoxShape.circle),
             ),
-          )
+          ),
         ],
       ),
     );

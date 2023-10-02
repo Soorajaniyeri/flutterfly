@@ -1,11 +1,8 @@
-import 'dart:io';
+import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
-import 'Study2.dart';
+import 'package:http/http.dart';
 
 class Study extends StatefulWidget {
   const Study({super.key});
@@ -15,74 +12,49 @@ class Study extends StatefulWidget {
 }
 
 class _StudyState extends State<Study> {
-  File? selectedImage;
-  String? myImage;
+  TextEditingController number = TextEditingController();
 
-  uploadImage() async {
-    ImagePicker select = ImagePicker();
-    XFile? store = await select.pickImage(source: ImageSource.gallery);
-    if (store != null) {
-print('uploaded url path');
-      print(store.path);
+  dynamic fact;
+
+  Future<dynamic> loadData(String number) async {
+    Response res = await get(Uri.parse("http://numbersapi.com/$number?json"));
+    if (res.statusCode == 200) {
+      var body = jsonDecode(res.body);
       setState(() {
-        myImage = store.path;
-        selectedImage = File(store.path);
-
+        fact = body;
       });
     }
-  }
-
-  storeData()async{
-    SharedPreferences dp = await SharedPreferences.getInstance();
-  await dp.setString("dp", myImage!);
-
-  Navigator.of(context).push(MaterialPageRoute(builder: (context){
-    return Study2();
-  }));
-
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.yellow,
-        title: Text("Study"),
-      ),
-      body: Center(
+      appBar: AppBar(),
+      body: Padding(
+        padding: const EdgeInsets.all(15),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            TextField(
+              controller: number,
+              keyboardType: TextInputType.number,
+              decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(20)),
+                      borderSide: BorderSide(color: Colors.black))),
+            ),
             ElevatedButton(
                 onPressed: () {
-                  uploadImage();
+                  if (number.text.isNotEmpty) {
+                    loadData(number.text);
+                  }
+
+
+                  else{
+
+                  }
                 },
-                child: Text("Select Image")),
-            SizedBox(
-              height: 10,
-            ),
-            selectedImage == null
-                ? SizedBox()
-                : Container(
-                    height: 150,
-                    width: 150,
-                    decoration: BoxDecoration(
-                        image: DecorationImage(
-                            fit: BoxFit.cover,
-                            image: FileImage(selectedImage!)),
-                        borderRadius: BorderRadius.all(Radius.circular(20))),
-                  ),
-            SizedBox(
-              height: 10,
-            ),
-            selectedImage == null
-                ? SizedBox()
-                : ElevatedButton(onPressed: () {
-
-                  storeData();
-            }, child: Text("Submit")),
-
-
+                child: Text('please select')),
+            fact == null ? Text("click") : Text(fact['text'])
           ],
         ),
       ),
